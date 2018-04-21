@@ -14,7 +14,7 @@ public interface IPratica1 {
 	 * @param path
 	 * @return
 	 */
-	public boolean readWightedGraph(String path);
+	public boolean readWeightedGraph(String path);
 	
 	/**
 	 * 

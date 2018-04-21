@@ -2,12 +2,6 @@ package biblioteca;
 
 public class Biblioteca implements IPratica1 {
 	
-	private Graph grafo;
-	
-	public Biblioteca(){
-		grafo = new Graph();
-	}
-
 	@Override
 	public boolean readGraph(String path) {
 		// TODO Auto-generated method stub
@@ -15,33 +9,36 @@ public class Biblioteca implements IPratica1 {
 	}
 
 	@Override
-	public boolean readWightedGraph(String path) {
+	public boolean readWeightedGraph(String path) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public int getVertexNumber(Graph graph) {
-		// TODO Auto-generated method stub
-		return 0;
+		return graph.vertices.size();
 	}
 
 	@Override
 	public int getEdgeNumber(Graph graph) {
-		// TODO Auto-generated method stub
-		return 0;
+		return graph.arestas.size();
 	}
 
 	@Override
 	public float getMeanEdge(Graph graph) {
-		// TODO Auto-generated method stub
-		return 0;
+		float mean = 0;
+		for (Aresta a : graph.arestas) {
+			mean += a.peso;
+		}
+		mean = mean / this.getEdgeNumber(graph);
+		
+		return mean;
 	}
 
 	@Override
 	public String graphRepresentation(Graph graph, String type) {
 		if(type == "AL") {
-			return grafo.toString();
+			return graph.toString();
 		}
 		else {
 			throw new RuntimeException("Fazer esta representacao!");
@@ -80,18 +77,20 @@ public class Biblioteca implements IPratica1 {
 	
 	
 	public static void main(String[] args) {
+		Biblioteca b = new Biblioteca();
 		
-	     Biblioteca b = new Biblioteca();
+		
+	     Graph grafo = new Graph();
 	     
-	     Vertice s = b.grafo.addVertice("s");
-	     Vertice t = b.grafo.addVertice("t");
-	     Vertice y = b.grafo.addVertice("y");
-	     Aresta st = b.grafo.addAresta(s, t);
-	     Aresta sy = b.grafo.addAresta(s, y);
-	     Aresta ty = b.grafo.addAresta(t, y);
-	     Aresta yt = b.grafo.addAresta(y, t);
+	     Vertice s = grafo.addVertice("s");
+	     Vertice t = grafo.addVertice("t");
+	     Vertice y = grafo.addVertice("y");
+	     Aresta st = grafo.addAresta(s, t);
+	     Aresta sy = grafo.addAresta(s, y);
+	     Aresta ty = grafo.addAresta(t, y);
+	     Aresta yt = grafo.addAresta(y, t);
 	     
-	     System.out.println(b.graphRepresentation(b.grafo, "AL"));
+	     System.out.println(b.graphRepresentation(grafo, "AL"));
 	 }
 
 }
