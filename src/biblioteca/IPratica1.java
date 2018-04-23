@@ -51,7 +51,7 @@ public interface IPratica1 {
 	 * @param v
 	 * @return
 	 */
-	public String BFS(Graph graph, Vertice v);
+	public String BFS(Graph graph, Integer v);
 	
 	/**
 	 * 
@@ -59,7 +59,7 @@ public interface IPratica1 {
 	 * @param v
 	 * @return
 	 */
-	public String DFS(Graph graph, Vertice v);
+	public String DFS(Graph graph, Integer v);
 	
 	/**
 	 * 
@@ -75,7 +75,7 @@ public interface IPratica1 {
 	 * @param v2
 	 * @return
 	 */
-	public String shortestPath(Vertice v1, Vertice v2);
+	public String shortestPath(Integer v1, Integer v2);
 	
 	/**
 	 * 

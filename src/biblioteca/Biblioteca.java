@@ -16,43 +16,33 @@ public class Biblioteca implements IPratica1 {
 
 	@Override
 	public int getVertexNumber(Graph graph) {
-		return graph.vertices.size();
+		return graph.getVertexNumber();
 	}
 
 	@Override
 	public int getEdgeNumber(Graph graph) {
-		return graph.arestas.size();
+		return graph.getEdgeNumber();
 	}
 
 	@Override
 	public float getMeanEdge(Graph graph) {
-		float mean = 0;
-		for (Aresta a : graph.arestas) {
-			mean += a.peso;
-		}
-		mean = mean / this.getEdgeNumber(graph);
-		
-		return mean;
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
 	public String graphRepresentation(Graph graph, String type) {
-		if(type == "AL") {
-			return graph.toString();
-		}
-		else {
-			throw new RuntimeException("Fazer esta representacao!");
-		}
+		return graph.graphRepresentation();
 	}
 
 	@Override
-	public String BFS(Graph graph, Vertice v) {
+	public String BFS(Graph graph, Integer v) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String DFS(Graph graph, Vertice v) {
+	public String DFS(Graph graph, Integer v) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -64,7 +54,7 @@ public class Biblioteca implements IPratica1 {
 	}
 
 	@Override
-	public String shortestPath(Vertice v1, Vertice v2) {
+	public String shortestPath(Integer v1, Integer v2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -77,20 +67,40 @@ public class Biblioteca implements IPratica1 {
 	
 	
 	public static void main(String[] args) {
-		Biblioteca b = new Biblioteca();
-		
-		
-	     Graph grafo = new Graph();
-	     
-	     Vertice s = grafo.addVertice("s");
-	     Vertice t = grafo.addVertice("t");
-	     Vertice y = grafo.addVertice("y");
-	     Aresta st = grafo.addAresta(s, t);
-	     Aresta sy = grafo.addAresta(s, y);
-	     Aresta ty = grafo.addAresta(t, y);
-	     Aresta yt = grafo.addAresta(y, t);
-	     
-	     System.out.println(b.graphRepresentation(grafo, "AL"));
-	 }
+		 System.out.println("#### Lista de Adjacencia ####");
+		 System.out.println();
+		 
+		 Graph list = new ListAdj(5);
+		 
+		 list.addEdge(1, 2);
+		 list.addEdge(2, 5);
+		 list.addEdge(5, 3);
+		 list.addEdge(4, 5);
+		 list.addEdge(1, 5);
+		 
+		 System.out.println(list.getVertexNumber());
+		 System.out.println(list.getEdgeNumber());
+		 System.out.println(list.graphRepresentation());   
+		 
+		 System.out.println();
+		 System.out.println("#####################");
+		 System.out.println();
+		 
+		 System.out.println("#### Matriz de Adjacencia ####");
+		 System.out.println();
+		 
+		 Graph matrix = new MatrixAdj(5);
+		 
+		 matrix.addEdge(1, 2);
+		 matrix.addEdge(2, 5);
+		 matrix.addEdge(5, 3);
+		 matrix.addEdge(4, 5);
+		 matrix.addEdge(1, 5);
+		 
+		 System.out.println(matrix.getVertexNumber());
+		 System.out.println(matrix.getEdgeNumber());
+		 System.out.println(matrix.graphRepresentation()); 
+		 
+	}
 
 }
