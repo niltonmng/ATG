@@ -43,7 +43,7 @@ public interface IPratica1 {
 	 * @param type
 	 * @return
 	 */
-	public String graphRepresentation(Graph graph, String type);
+	public String graphRepresentation(Graph graph, RepresentationType type);
 	
 	/**
 	 * 

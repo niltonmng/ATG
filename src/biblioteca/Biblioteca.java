@@ -31,8 +31,8 @@ public class Biblioteca implements IPratica1 {
 	}
 
 	@Override
-	public String graphRepresentation(Graph graph, String type) {
-		return graph.graphRepresentation();
+	public String graphRepresentation(Graph graph, RepresentationType type) {
+		return graph.graphRepresentation(type);
 	}
 
 	@Override
@@ -67,25 +67,7 @@ public class Biblioteca implements IPratica1 {
 	
 	
 	public static void main(String[] args) {
-		 System.out.println("#### Lista de Adjacencia ####");
-		 System.out.println();
-		 
-		 Graph list = new ListAdj(5);
-		 
-		 list.addEdge(1, 2);
-		 list.addEdge(2, 5);
-		 list.addEdge(5, 3);
-		 list.addEdge(4, 5);
-		 list.addEdge(1, 5);
-		 
-		 System.out.println(list.getVertexNumber());
-		 System.out.println(list.getEdgeNumber());
-		 System.out.println(list.graphRepresentation());   
-		 
-		 System.out.println();
-		 System.out.println("#####################");
-		 System.out.println();
-		 
+
 		 System.out.println("#### Matriz de Adjacencia ####");
 		 System.out.println();
 		 
@@ -99,7 +81,12 @@ public class Biblioteca implements IPratica1 {
 		 
 		 System.out.println(matrix.getVertexNumber());
 		 System.out.println(matrix.getEdgeNumber());
-		 System.out.println(matrix.graphRepresentation()); 
+		 System.out.println(matrix.graphRepresentation(RepresentationType.AM)); 
+		 System.out.println("#### Lista de Adjacencia ####");
+		 System.out.println();
+		 System.out.println(matrix.getVertexNumber());
+		 System.out.println(matrix.getEdgeNumber());
+		 System.out.println(matrix.graphRepresentation(RepresentationType.AL)); 
 		 
 	}
 

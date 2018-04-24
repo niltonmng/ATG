@@ -48,10 +48,21 @@ public class MatrixAdj implements Graph {
 	}
 	
 	@Override
-	public String graphRepresentation() {
+	public String graphRepresentation(RepresentationType type) {
+		
+		if (type.equals(RepresentationType.AM)) {
+			return this.graphRepresentationAM();
+		}
+		else {
+			return this.graphRepresentationAL();
+		}
+	}
+	
+	private String graphRepresentationAM() {
 		int size = this.graph.length;
 
 		String graphRepresentation = "";
+		
 		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < size; j++) {
 				if (i == 0 && j == 0) {
@@ -66,7 +77,23 @@ public class MatrixAdj implements Graph {
 			}
 			graphRepresentation += NEW_LINE;
 		}
+		return graphRepresentation;
+	}
+	
+	private String graphRepresentationAL() {
+		int size = this.graph.length;
 
+		String graphRepresentation = "";
+		
+		for (int i = 1; i < size; i++) {
+			graphRepresentation += i + " -";
+			for (int j = 1; j < size; j++) {
+				if (this.graph[i][j] == 1) {
+					graphRepresentation += " " + j;						
+				}
+			}
+			graphRepresentation += NEW_LINE;
+		}
 		return graphRepresentation;
 	}
 
