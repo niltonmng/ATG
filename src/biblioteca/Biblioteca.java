@@ -26,8 +26,7 @@ public class Biblioteca implements IPratica1 {
 
 	@Override
 	public float getMeanEdge(Graph graph) {
-		// TODO Auto-generated method stub
-		return 0;
+		return 2*this.getEdgeNumber(graph)/this.getVertexNumber(graph);
 	}
 
 	@Override
@@ -68,26 +67,32 @@ public class Biblioteca implements IPratica1 {
 	
 	public static void main(String[] args) {
 
-		 System.out.println("#### Matriz de Adjacencia ####");
-		 System.out.println();
-		 
-		 Graph matrix = new MatrixAdj(5);
-		 
-		 matrix.addEdge(1, 2);
-		 matrix.addEdge(2, 5);
-		 matrix.addEdge(5, 3);
-		 matrix.addEdge(4, 5);
-		 matrix.addEdge(1, 5);
-		 
-		 System.out.println(matrix.getVertexNumber());
-		 System.out.println(matrix.getEdgeNumber());
-		 System.out.println(matrix.graphRepresentation(RepresentationType.AM)); 
-		 System.out.println("#### Lista de Adjacencia ####");
-		 System.out.println();
-		 System.out.println(matrix.getVertexNumber());
-		 System.out.println(matrix.getEdgeNumber());
-		 System.out.println(matrix.graphRepresentation(RepresentationType.AL)); 
-		 
+		Biblioteca bi = new Biblioteca();
+		Graph matrix = new MatrixAdj(5);
+
+		matrix.addEdge(1, 2);
+		matrix.addEdge(2, 5);
+		matrix.addEdge(5, 3);
+		matrix.addEdge(4, 5);
+		matrix.addEdge(1, 5);
+		
+
+		System.out.println(bi.getMeanEdge(matrix));
+		
+		System.out.println("#### Matriz de Adjacencia ####");
+		
+		System.out.println();		
+		System.out.println(matrix.getVertexNumber());
+		System.out.println(matrix.getEdgeNumber());
+		System.out.println(matrix.graphRepresentation(RepresentationType.AM)); 
+		
+		System.out.println("#### Lista de Adjacencia ####");
+		
+		System.out.println();
+		System.out.println(matrix.getVertexNumber());
+		System.out.println(matrix.getEdgeNumber());
+		System.out.println(matrix.graphRepresentation(RepresentationType.AL));
+
 	}
 
 }

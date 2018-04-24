@@ -31,7 +31,7 @@ public interface IPratica1 {
 	public int getEdgeNumber(Graph graph);
 	
 	/**
-	 * 
+	 * O grau médio do grafo é o número 2E/V
 	 * @param graph
 	 * @return
 	 */
